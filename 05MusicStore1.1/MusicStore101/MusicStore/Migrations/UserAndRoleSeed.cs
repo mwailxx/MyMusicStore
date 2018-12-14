@@ -51,9 +51,9 @@ namespace MusicStore.Migrations
             #region 管理员
             var person1 = new Person()
             {
-                FirstName = "梅",
-                LastName = "西",
-                Name = "梅西",
+                FirstName = "冥",
+                LastName = "無",
+                Name = "冥無",
                 CredentialsCode = "4500002015010112345",
                 Birthday = DateTime.Parse("2015-01-01"),
                 Sex = true,
@@ -68,9 +68,9 @@ namespace MusicStore.Migrations
             var loginUser = new ApplicationUser()
             {
                 UserName = "messi",
-                FirstName = "梅",
-                LastName = "西",
-                ChineseFullName = "梅西",
+                FirstName = "冥",
+                LastName = "無",
+                ChineseFullName = "冥無",
                 MobileNumber = "13833883388",
                 Email = "messi@163.com",
                 Person =person1,
@@ -118,9 +118,9 @@ namespace MusicStore.Migrations
 
             var person3 = new Person()
             {
-                FirstName = "许",
-                LastName = "生",
-                Name = "许生",
+                FirstName = "胡",
+                LastName = "军生",
+                Name = "胡军生",
                 CredentialsCode = "452222198210090011",
                 Birthday = DateTime.Parse("1980-01-01"),
                 Sex = true,
@@ -135,9 +135,9 @@ namespace MusicStore.Migrations
             var newUser3 = new ApplicationUser()
             {
                 UserName = "xs",
-                FirstName = "许",
-                LastName = "生",
-                ChineseFullName = "许生",
+                FirstName = "胡",
+                LastName = "军生",
+                ChineseFullName = "胡军生",
                 MobileNumber = "13899998888",
                 Email = "646495830@qq.com",
                 Person = person3
