@@ -12,7 +12,7 @@ namespace MusicStore.ViewModels
     public class RegisterViewModel
     {
         [Required(ErrorMessage = "用户名不能为空")]
-        [Display(Name = "登录名")]
+        [Display(Name="登录名")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "姓名不能为空")]
@@ -23,7 +23,7 @@ namespace MusicStore.ViewModels
         [Display(Name = "邮箱")]
         [DataType(DataType.EmailAddress)]
         [RegularExpression(@"^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$", ErrorMessage = "请输入正确的Email格式！")]
-        public string Email { get; set; }
+        public string Email{ get; set; }
 
         [Required(ErrorMessage = "密码不能为空")]
         [Display(Name = "密码")]
@@ -33,7 +33,7 @@ namespace MusicStore.ViewModels
 
         [Display(Name = "确认密码")]
         [DataType(DataType.Password)]
-        [Compare("PassWord", ErrorMessage = "密码两次输入要一致")]
+        [Compare("PassWord",ErrorMessage = "密码两次输入要一致")]
         public string ConfirmPassWord { get; set; }
     }
 }

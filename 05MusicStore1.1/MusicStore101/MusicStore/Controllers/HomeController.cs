@@ -30,7 +30,7 @@ namespace MusicStore.Controllers
         /// <param name="username"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public string TestLogin(string username = "hs", string pwd = "123.abc")
+        public string TestLogin(string username ="hs",string pwd = "123.abc")
         {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
             var user = userManager.Find(username, pwd);
@@ -40,12 +40,12 @@ namespace MusicStore.Controllers
                 var context = new MusicStoreEntity.EntityDbContext();
                 foreach (var role in user.Roles)
                     roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + " ";
-                return "登录成功，用户属于:" + roleName;
+                return "登录成功，用户属于:"+ roleName;
             }
             else
                 return "登录失败";
         }
-
+        
         /// <summary>
         ///  伪造攻击
         /// </summary>
@@ -64,7 +64,7 @@ namespace MusicStore.Controllers
             var client = new HttpClient();
             //初始化提交的参数
             var values = new List<KeyValuePair<string, string>>();
-            values.Add(new KeyValuePair<string, string>("UserName", "admin"));
+            values.Add(new KeyValuePair<string, string>("UserName","admin"));
             values.Add(new KeyValuePair<string, string>("PassWord", "123.abc"));
             var content = new FormUrlEncodedContent(values);
             var respnse = await client.PostAsync("http://10.88.91.101:9000/account/login", content);

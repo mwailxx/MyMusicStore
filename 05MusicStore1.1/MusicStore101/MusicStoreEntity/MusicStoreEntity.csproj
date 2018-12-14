@@ -62,7 +62,6 @@
     <Compile Include="Cart.cs" />
     <Compile Include="EntityDbContext.cs" />
     <Compile Include="EnumOrderStatus.cs" />
-    <Compile Include="Gart.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />

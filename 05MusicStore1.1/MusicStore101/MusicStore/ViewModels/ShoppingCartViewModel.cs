@@ -16,6 +16,5 @@ namespace MusicStore.ViewModels
 
         //总价
         public decimal CartTotalPrice { get; set; }
-        //
     }
 }
