@@ -26,21 +26,22 @@
                     <td>
                         @foreach(var d in item.OrderDetails)
                         {
-                            <span class="text-primary">@d.Album.Title,@d.Count冥</span><br/>
+                            <span class="text-primary">@d.Album.Title,@d.Count 张</span><br/>
                         }
                     </td>
                     <td>
-                        $@item.TotalPrice.ToString("C")
+                       ￥@item.TotalPrice.ToString("C")
                     </td>
                     <td>
                         @item.EnumOrderStatus
                         @if (item.EnumOrderStatus == EnumOrderStatus.未付款)
                         {
-                            <a class="btn btn-success" href="@Url.Action("alipay","Pay",new {id= item.ID})"><i class="glyphicon gd"></i>马上付款</a>
+                            <a style="color:white"class="btn btn-success" href="@Url.Action("alipay","Pay",new {id= item.ID})"><i class="glyphicon gd"></i>马上付款</a>
                         }
                     </td>
-</tr>
+                </tr>
             }
         </tbody>
     </table>
+    <p></p>
 </fieldset>
