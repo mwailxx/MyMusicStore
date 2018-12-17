@@ -49,3 +49,22 @@
     </div>
 </form>
 
+<script>
+    $(function () {
+        $("#Avarda").on("change",
+            function () {
+                var file = this.files[0];
+                //判断是不是图片
+                if (!/imageV\w+/.test(file.type)) {
+                    alert('文件必须为图片！');
+                    return false;
+                }
+                //
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function (e) {
+                    $("#imgAvarda").attr('src', this.result);
+                }
+            });
+    });
+</script>
