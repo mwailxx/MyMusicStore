@@ -29,16 +29,15 @@ namespace MusicStore.Controllers
 
             ViewBag.AvardaUrl = person.Avarda;
 
-            return View(myVM);
+            return View(myVm);
         }
-
         [HttpPost]
         public ActionResult Index(MyViewModel model)
         {
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "My") });
 
-            var person = _context.Persons.Find(Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
             //用户原来的头像
             var oldAvarda = person.Avarda;
 
