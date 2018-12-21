@@ -9,6 +9,7 @@ namespace MusicStoreEntity
     /// <summary>
     /// 专辑
     /// </summary>
+    /// 
     public class Album
     {
         public Guid ID { get; set; }
