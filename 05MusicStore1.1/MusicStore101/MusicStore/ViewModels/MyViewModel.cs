@@ -11,8 +11,6 @@ namespace MusicStore.ViewModels
     /// </summary>
     public class MyViewModel
     {
-        internal bool IsValid;
-
         [Display(Name = "收件人姓名")]
         [Required(ErrorMessage = "收件人姓名不能为空")]
         public string Name { get; set; }

@@ -35,7 +35,7 @@ namespace MusicStore.Controllers
         public ActionResult Index(MyViewModel model)
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "My") });
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "My") });
 
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
             //用户原来的头像
