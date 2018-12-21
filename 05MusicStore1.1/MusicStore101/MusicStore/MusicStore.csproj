@@ -170,7 +170,6 @@
     <Content Include="Content\Images\girl.jpg.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
     <Content Include="Content\Images\logo.png" />
-    <Content Include="Content\Images\placeholder.gif" />
     <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\yinfu.gif" />
     <Content Include="Content\themes\base\accordion.css" />

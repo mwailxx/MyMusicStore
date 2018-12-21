@@ -26,5 +26,6 @@ namespace MusicStore.ViewModels
         [Display(Name = "头像")]
         [DataType(DataType.Upload)]
         public HttpPostedFileBase Avarda { get; set; }
+        public bool IsValid { get; internal set; }
     }
 }

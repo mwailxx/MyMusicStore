@@ -90,6 +90,18 @@
         <button class="btn btn-primary" id="addcart">评论</button>
         回复1：好好听哦！！！
       </p>
+    <div style="height:120px"></div>
+        <script id="container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
 </div>
 
 <script>
@@ -105,7 +117,7 @@
             success: function(data) {
                 //如果没有登录，跳转到登录页
                 if (data == "nologin") {
-                    location.href = "@Url.Action("login", "Account", 
+                    location.href = "@Url.Action("login", "Account",
                                          new {returnUrl = Url.Action("Detail", "Store", new {id = Model.ID})})";
                 }
                 else {
@@ -120,4 +132,4 @@
             }
         });
     });
-</script>
+    </script>

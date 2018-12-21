@@ -11,10 +11,10 @@
     <div>
         <fieldset>
             <div class="editor-label">
-                @Html.LabelFor(x=>x.Name)
+                @Html.LabelFor(x => x.Name)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Name, new { placeholder="请输入收件人姓名"})
+                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入收件人姓名" })
                 @Html.ValidationMessageFor(x => x.Name)
             </div>
 
@@ -38,12 +38,12 @@
                 @Html.LabelFor(x => x.Avarda)
             </div>
             <div class="editor-field">
-                <img id="imgAvarda" src="@ViewBag.AvardaUrl"/>
-                @Html.TextBoxFor(x => x.Name, new {type = "file"})
+                <img id="imgAvarda" src="@ViewBag.AvardaUrl" />
+                @Html.TextBoxFor(x => x.Name, new { type = "file" })
             </div>
 
             <p>
-                <input type="submit" value="保存" class="btn btn-success" style="width:100px"/>
+                <input type="submit" value="保存" class="btn btn-success" style="width:100px" />
             </p>
         </fieldset>
     </div>
@@ -68,3 +68,5 @@
             });
     });
 </script>
+>
+
