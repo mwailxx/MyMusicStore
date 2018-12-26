@@ -28,11 +28,17 @@ namespace MusicStoreEntity
         [Requirwd]
         public virtual Album Album { get; set; }
 
-       // [Requirwd]
-        //public virtual Reply ParentReply { get; set; }//上级回复
+        [Requirwd]
+        public virtual Reply ParentReply { get; set; }//上级回复
 
         public DateTime CreateDateTime { get; set; }//回复时间
 
+
+        //赞
+        public int Like { get; set; } = 0;
+
+        //黑
+        public int Hate { get; set; } = 0;
         public Reply()
         {
             ID = Guid.NewGuid();
