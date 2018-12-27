@@ -16,29 +16,26 @@
             user = loginUserModel.User;
         }
         //查询购物车  收藏车
-        carts = new EntityDbContext().Carts.Where(x=>x.Person.ID== user.Person.ID).ToList();
+        carts = new EntityDbContext().Carts.Where(x => x.Person.ID == user.Person.ID).ToList();
     }
 }
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title - 音乐商店</title>    
+    <title>@ViewBag.Title - 音乐商店</title>
     @*绑定样式库*@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/UEditor/Css")
     @Styles.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/JqueryUI")
-
     @*绑定脚本库*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/JqueryUI")
     @Scripts.Render("~/bundles/jqueryval")
-    @Styles.Render("~/bundles/UEditor")
-
+    @Scripts.Render("~/bundles/UEditor")
 </head>
 <body>
     <div id="header">
@@ -55,22 +52,17 @@
             {
                 //登录成功显示用户姓名，点姓名展开向下菜单
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false">
-                        
-
-                       <img src="@user.Person.Avarda" alt="头像" class="Avarda"/>
-                        @user.Person.Name
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img src="@user.Person.Avarda" alt="头像" id="userAvarda" />
 
                         @*百度地图定位*@
                         <span id="city" class="glyphicon glyphicon-map-marker">定位中...</span><span id="district"></span>
-
                         @user.Person.Name
-                    <span class="caret"></span>
+                        <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("index", "ShoppingCart")">购物车(@carts.Count)</a></li>
-                        <li><a href="@Url.Action("index", "Oder")">订单</a></li>
+                        <li><a href="@Url.Action("index", "Order")">订单</a></li>
                         <li><a href="@Url.Action("index", "My")">我的</a></li>
                         <li><a href="@Url.Action("ChangePassWord", "Account")">修改密码</a></li>
                         <li><a href="@Url.Action("loginout", "account")">注销</a></li>
@@ -79,7 +71,7 @@
             }
         </ul>
     </div>
-    <div class="container"> 
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
                 @*左侧导航*@
@@ -102,15 +94,13 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
-
-
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=YfClTeslIj7w3GyKmAtgViBKflF3O7no"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=emKzTIR8orgFMUjXFLjgU1IT"></script>
 <script>
     var geolocation = new BMap.Geolocation();
-    geolocation.getCurrentPosition(function(r){
+    geolocation.getCurrentPosition(function(r) {
         if (this.getStatus() == BMAP_STATUS_SUCCESS) {
             lng = r.point.lng;
-            lat = point.lat;
+            lat = r.point.lat;
             console.log(r);
             //显示百度地图查询结果 地区
             if (r.address.district != "") {
@@ -118,11 +108,12 @@
             }
             //显示百度地图查询结果 城市
             if (r.address.city != "") {
-                document.getElementById('dcity').innerHTML = r.address.dcity;
+                document.getElementById('city').innerHTML = r.address.city;
             }
         } else {
-            document.getElementById('city').innerHTML = "无法定位";
+                document.getElementById('city').innerHTML = "无法定位";
         }
-
-    },{enableHighAccuracy:true})
+        },
+        { enableHighAccuracy: true });
 </script>
+

@@ -3,7 +3,6 @@
     ViewBag.Title = "我的";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-
 <h2>个人信息</h2>
 <form enctype="multipart/form-data" action="" method="post">
     @Html.AntiForgeryToken()
@@ -22,15 +21,15 @@
                 @Html.LabelFor(x => x.Address)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入收件人地址" })
+                @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入收货地址" })
                 @Html.ValidationMessageFor(x => x.Address)
             </div>
 
             <div class="editor-label">
-                @Html.LabelFor(x => x.Avarda)
+                @Html.LabelFor(x => x.MobilNumber)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入收件人手机" })
+                @Html.TextBoxFor(x => x.MobilNumber, new { placeholder = "请输入收件人手机" })
                 @Html.ValidationMessageFor(x => x.MobilNumber)
             </div>
 
@@ -39,7 +38,7 @@
             </div>
             <div class="editor-field">
                 <img id="imgAvarda" src="@ViewBag.AvardaUrl" />
-                @Html.TextBoxFor(x => x.Name, new { type = "file" })
+                @Html.TextBoxFor(x => x.Avarda, new { type = "file" })
             </div>
 
             <p>
@@ -48,18 +47,17 @@
         </fieldset>
     </div>
 </form>
-
 <script>
-    $(function () {
+    $(function() {
         $("#Avarda").on("change",
-            function () {
+            function() {
                 var file = this.files[0];
                 //判断是不是图片
-                if (!/imageV\w+/.test(file.type)) {
+                if (!/image\/\w+/.test(file.type)) {
                     alert('文件必须为图片！');
                     return false;
                 }
-                //
+                //读文件内容，读物理地址，把img标签的src属性重新赋值
                 var reader = new FileReader();
                 reader.readAsDataURL(file);
                 reader.onload = function (e) {
@@ -68,5 +66,5 @@
             });
     });
 </script>
->
+
 
