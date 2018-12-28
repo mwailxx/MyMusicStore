@@ -89,7 +89,11 @@ namespace MusicStore.Controllers
 
             _context.Replies.Add(r);
             _context.SaveChanges();
-            return Json("OK");
+
+            //局部刷新显示成最新的评论
+            var replies = _context.Replies.Where(x => x.Album.ID == album.ID && x.ParentReply == null)
+                .OrderByDescending(x => x.CreateDateTime).ToList();
+            return Json(_GetHtml(replies));
         }
 
         /// <summary>
