@@ -134,6 +134,19 @@
 
     function ShowCmt(id) {
         //ajax查询出子回复
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("showCmts","Store")',
+            data: { "pid": id },
+            contentType: 'json',
+            success: function (data) {
+                $("#Div-SonCmts").html(data);
+                $('#myModal').modal('toggle');
+            }
+                
+            
+        });
 
         $('#myModal').modal('toggle');
     }

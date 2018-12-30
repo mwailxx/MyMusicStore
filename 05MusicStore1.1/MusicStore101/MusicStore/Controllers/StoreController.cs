@@ -27,6 +27,25 @@ namespace MusicStore.Controllers
         }
 
         /// <summary>
+        /// 点赞
+        /// </summary>
+        /// <param name="id">回复id</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Like(Guid id)
+        {
+            //1.pd用户是否登录
+
+            //2.判断用户是否对这条回复点过赞或踩
+
+            //3.保存 reply实体中like+1 LikeReply添加一条 记录
+
+            //生成html注入视图
+
+            return Json("Ok");
+        }
+
+        /// <summary>
         /// 生成回复的显示html文本
         /// </summary>
         /// <param name="cmt"></param>
@@ -97,6 +116,26 @@ namespace MusicStore.Controllers
             var replies = _context.Replies.Where(x => x.Album.ID == album.ID && x.ParentReply == null)
                 .OrderByDescending(x => x.CreateDateTime).ToList();
             return Json(_GetHtml(replies));
+        }
+
+        [HttpPost]
+        public ActionResult showCmts(string pid)
+        {
+            var htmlString = "";
+            //子回复
+            var cmts = _context.Replies.Where(x => x.ParentReply.ID == Guid.Parse(pid)).ToList();
+            //原回复
+            var pcmt = _context.Replies.Find(Guid.Parse(pid));
+            htmlString += "<div class=\"modal-header\">";
+            htmlString += "<button type=\"button\" class=\"close\" data-dissmiss=\"modal\"aria-hidden=\"true\">x<button>";
+            htmlString += "<h4 class=\"modal-title\"id=\"myModalLabel\">";
+            htmlString += "<em>楼主</em>|"+ pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") +"<br/>"+ pcmt.Content;
+            htmlString += "</h4> </div>";
+
+            htmlString += "<div class=\"modal-body\">";
+            //子回复
+            htmlString += "</div><div class=\"modal-footer\"></div>";
+            return Json(htmlString);
         }
 
         /// <summary>
