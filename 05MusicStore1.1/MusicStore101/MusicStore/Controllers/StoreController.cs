@@ -69,9 +69,9 @@ namespace MusicStore.Controllers
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replies.Where(x => x.ParentReply.ID == item.ID).ToList();
                 htmlString += "<h6><a href='#div-editor'class='reply' onclick=\"javascript:GetQuote('" + item.ID+
-                    "');\">回复</a>(<a href='#' class='reply' onclick=\"javascript:ShowCmt('" + item.ID +"');\">" + sonCmt.Count + "</a>)条" +
-                    "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +
-                              item.Like + ")<a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+                    "');\">回复</a>(<a href='#' class='reply' onclick=\"javascript:Like('" + item.ID +"');\">" + sonCmt.Count + "</a>)条" +
+                    "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +item.Like +")</a>"+
+                    "<a href='#' class='reply' style='margin:0 20px' onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
                 htmlString += "</div>";
                 htmlString += "</li>";
             }
@@ -129,7 +129,7 @@ namespace MusicStore.Controllers
             htmlString += "<div class=\"modal-header\">";
             htmlString += "<button type=\"button\" class=\"close\" data-dissmiss=\"modal\"aria-hidden=\"true\">x<button>";
             htmlString += "<h4 class=\"modal-title\"id=\"myModalLabel\">";
-            htmlString += "<em>楼主</em>|"+ pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") +"<br/>"+ pcmt.Content;
+            htmlString += "<em>楼主&nbsp:&nbsp;</em>|" + pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") +"<br/>"+ pcmt.Content;
             htmlString += "</h4> </div>";
 
             htmlString += "<div class=\"modal-body\">";

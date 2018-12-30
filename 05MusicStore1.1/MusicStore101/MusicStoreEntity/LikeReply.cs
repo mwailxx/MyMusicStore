@@ -14,7 +14,7 @@ namespace MusicStoreEntity
     {
         public Guid ID { get; set; }
         public virtual Reply Reply { get; set; }
-        public bool IsNotLiKe { get; set; }
+        public bool IsNotLiKe { get; set; }//like保存true hate促false
         public virtual Person Person { get; set; }//上级回复
         public DateTime CreateDateTime { get; set; }//回复时间
 
