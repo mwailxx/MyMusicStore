@@ -16,26 +16,29 @@
             user = loginUserModel.User;
         }
         //查询购物车  收藏车
-        carts = new EntityDbContext().Carts.Where(x => x.Person.ID == user.Person.ID).ToList();
+        carts = new EntityDbContext().Carts.Where(x=>x.Person.ID== user.Person.ID).ToList();
     }
 }
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title - 音乐商店</title>
+    <title>@ViewBag.Title - 音乐商店</title>    
     @*绑定样式库*@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/UEditor/Css")
     @Styles.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/JqueryUI")
+
     @*绑定脚本库*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/JqueryUI")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/UEditor")
+
 </head>
 <body>
     <div id="header">
@@ -53,10 +56,11 @@
                 //登录成功显示用户姓名，点姓名展开向下菜单
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <img src="@user.Person.Avarda" alt="头像" id="userAvarda" />
-
+                        <img src="@user.Person.Avarda" alt="头像" id="userAvarda"/>
+                        
                         @*百度地图定位*@
                         <span id="city" class="glyphicon glyphicon-map-marker">定位中...</span><span id="district"></span>
+
                         @user.Person.Name
                         <span class="caret"></span>
                     </a>
@@ -71,7 +75,7 @@
             }
         </ul>
     </div>
-    <div class="container">
+    <div class="container"> 
         <div class="row">
             <div class="col-md-3">
                 @*左侧导航*@
@@ -94,6 +98,7 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=emKzTIR8orgFMUjXFLjgU1IT"></script>
 <script>
     var geolocation = new BMap.Geolocation();
@@ -116,4 +121,5 @@
         },
         { enableHighAccuracy: true });
 </script>
+
 

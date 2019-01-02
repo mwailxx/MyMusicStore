@@ -35,7 +35,7 @@
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
         , toolbars: [[
-            'source', 'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo'
+            'source','simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo'
         ]]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         //,labelMap:{
@@ -346,7 +346,7 @@
 
         var configPath = document.getElementsByTagName('script');
 
-        return configPath[configPath.length - 1].src;
+        return configPath[ configPath.length - 1 ].src;
 
     }
 
@@ -373,7 +373,7 @@
 
     function optimizationPath(path) {
 
-        var protocol = /^[a-z]+:\/\//.exec(path)[0],
+        var protocol = /^[a-z]+:\/\//.exec(path)[ 0 ],
             tmp = null,
             res = [];
 
@@ -381,11 +381,11 @@
 
         path = path.replace(/\\/g, '/').split(/\//);
 
-        path[path.length - 1] = "";
+        path[ path.length - 1 ] = "";
 
         while (path.length) {
 
-            if ((tmp = path.shift()) === "..") {
+            if (( tmp = path.shift() ) === "..") {
                 res.pop();
             } else if (tmp !== ".") {
                 res.push(tmp);

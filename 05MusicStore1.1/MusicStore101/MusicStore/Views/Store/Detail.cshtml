@@ -1,17 +1,21 @@
 ﻿@model MusicStoreEntity.Album
+
 @{
     Layout = "~/Views/Shared/_NewLayout.cshtml";
     ViewBag.Title = "专辑明细";
 }
 
+
 <h2>@Model.Title</h2>
+
 <div id="box-video">
-    <div class="cd" style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
+    <div class="cd"  style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
         <div class="cd-center">
             <audio src="@Model.MusicUrl" controls autoplay loop></audio>
         </div>
     </div>
 </div>
+
 <div id="album-details">
     <p>
         <em>
@@ -37,12 +41,14 @@
         </em>
         ￥@String.Format("{0:F}", Model.Price)
     </p>
+
     <div id="msg"></div>
     <p class="button">
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg"></div>
     </p>
 </div>
+
 @*显示评论*@
 <div class="row">
     <div class="col-md-10">
@@ -51,6 +57,7 @@
         </div>
     </div>
 </div>
+
 @*百度ueditor的呈现*@
 <div class="row">
     <div class="col-md-10">
@@ -64,88 +71,55 @@
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" id="Div-SonCmts">
+        <div class="modal-content"  id="Div-SonCmts">
             <div class="modal-header">
-                <button type="button" class="close" data-dissmiss="modal"
-                    aria-hidden="true">x
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
                     原回复
                 </h4>
             </div>
             <div class="modal-body">
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-
             </div>
             <div class="modal-footer">
             </div>
-        </div><!--/.modal-content-->
-    </div><!--/.modal-dialog-->
-</div><!--/.modal -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <script>
     //点击评论中的回复按钮触发的方法
-    function GetQuote(id){
+    function GetQuote(id, divid) {
         //保存该评论的id
         $("#pReplyID").val(id);
         //alert($("#pReplyID").val());
         //取回复的内容
-        var divName = 'Content-' + id;
-        var content = "<p></p>"+ $("#" + divName).html();
+        var divName = 'Content-' + divid;
+        var content = "<br/><br/><div style='margin:20px; border:1px solid black'>引用：<br/>" + $("#" + divName).html() + "</div>";
 
         //把内容赋值给ueditor
         var ue = UE.getEditor('editor');
-        ue.reply(function () {
+        ue.ready(function() {
             ue.setContent(content);
         });
+
+        //如果model打开则关了
+        $('#myModal').modal('hide');
     }
 
     function ShowCmt(id) {
-        //ajax查询出子回复
+        //ajax 查询出子回复
         $.ajax({
             type: 'post',
             asyn: true,
             url: '@Url.Action("showCmts","Store")',
-            data: { "pid": id },
-            contentType: 'json',
+            data: {"pid":id},
+            dataType: 'json',
             success: function (data) {
                 $("#Div-SonCmts").html(data);
                 $('#myModal').modal('toggle');
             }
-                
-            
         });
     }
 
@@ -154,31 +128,31 @@
         $.ajax({
             type: 'post',
             asyn: true,
-            url: '@Url.Action("Like", "Store")',
+            url: '@Url.Action("Like","Store")',
             data: { "pid": id },
-            contentType: 'json',
-            success: function (data) {
-                //detail
-                //modal
-            }               
-        });
-    }   
-
-    //踩
-    function hate(id) {
-        $.ajax({
-            type: 'post',
-            asyn: true,
-            url: '@Url.Action("hate", "Store")',
-            data: { "pid": id },
-            contentType: 'json',
+            dataType: 'json',
             success: function (data) {
                 //detail
                 //modal
             }
         });
     }
-  
+
+    //踩
+    function hate(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Hate","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                //detail
+                //modal
+            }
+        });
+    }
+
     //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
         UEDITOR_HOME_URL: '/ueditor/',   //配置编辑器的路径
@@ -204,7 +178,7 @@
             data: {
                 "id":"@Model.ID",
                 "cmt": content,
-                "reply":pid
+                "reply": pid
             },
             dataType: 'json',
             success: function (data) {
@@ -215,9 +189,8 @@
                 } else {
                     //html文本注入div
                     $("#divCmt").html(data);
+                    //清空ueditor编辑器
                     UE.getEditor('editor').setContent('');
-                    location.reload();
-                    alert('发表成功!');
                 }
             }
         });

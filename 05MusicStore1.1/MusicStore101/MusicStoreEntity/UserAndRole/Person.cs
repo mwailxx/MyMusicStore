@@ -58,7 +58,7 @@ namespace MusicStoreEntity.UserAndRole
         //个人头像
         [DataType(DataType.ImageUrl)]
         public string Avarda { get; set; } = "/content/images/boy.jpg";
-
+        
         public Person()
         {
             this.ID = Guid.NewGuid();

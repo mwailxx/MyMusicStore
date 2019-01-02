@@ -40,7 +40,7 @@ namespace MusicStore.Controllers
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "My") });
 
-            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+            var person =_context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
             //用户原来的头像
             var oldAvarda = person.Avarda;
 
@@ -53,7 +53,7 @@ namespace MusicStore.Controllers
                     //取后缀名
                     var fileLastName = model.Avarda.FileName.Substring(model.Avarda.FileName.LastIndexOf(".") + 1,
                         (model.Avarda.FileName.Length - model.Avarda.FileName.LastIndexOf(".") - 1));
-                    var imagePath = Path.Combine(Server.MapPath(uploadDir), person.ID + "." + fileLastName);  //将网站虚拟路径转化为真实的物理路径
+                    var imagePath = Path.Combine(Server.MapPath(uploadDir), person.ID + "."+ fileLastName);  //将网站虚拟路径转化为真实的物理路径
                     model.Avarda.SaveAs(imagePath);
                     oldAvarda = "/Upload/Avarda/" + person.ID + "." + fileLastName;
                 }
@@ -76,4 +76,5 @@ namespace MusicStore.Controllers
         }
     }
 
-} 
+    
+}

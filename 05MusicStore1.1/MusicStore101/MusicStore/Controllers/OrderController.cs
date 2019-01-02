@@ -34,7 +34,7 @@ namespace MusicStore.Controllers
                 AddressPerson = person.Name,
                 MobilNumber = person.MobileNumber,
                 Person = _context.Persons.Find(person.ID),
-                TotalPrice = totalPrice ?? 0.00M,
+                TotalPrice = totalPrice??0.00M,
             };
 
             //4.把购物项导入订单明细
@@ -80,11 +80,11 @@ namespace MusicStore.Controllers
             foreach (var item in order.OrderDetails)
             {
                 htmlString += "<tr>";
-                htmlString += "<td><a href='" + Url.Action("Detail", "Store", new { id = item.Album.ID }) + "'>"
-                    + item.Album.Title + "</a></td>";
+                htmlString += "<td><a href='"+Url.Action("Detail","Store",new {id=item.Album.ID})+"'>"
+                    +item.Album.Title+"</a></td>";
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString += "<td>" + item.Count + "</td>";
-                htmlString += "<td><a href='#' onclick='RemoveDetail('" + item.ID + "');'><i class='glyphicon glyphicon-remove'></i>我不喜欢它了</a></td>";
+                htmlString += "<td>"+item.Count+"</td>";
+                htmlString += "<td><a href='#' onclick='RemoveDetail('"+item.ID+"');'><i class='glyphicon glyphicon-remove'></i>我不喜欢它了</a></td>";
                 htmlString += "</tr>";
             }
 
@@ -110,7 +110,7 @@ namespace MusicStore.Controllers
             order.Person = _context.Persons.Find(person.ID);
 
             //3.从会话中读出订单明细列表
-            order.OrderDetails = new List<OrderDetail>();
+            order.OrderDetails = new  List<OrderDetail>();
             var details = (Session["Order"] as Order).OrderDetails;
             foreach (var item in details)
             {
@@ -155,7 +155,7 @@ namespace MusicStore.Controllers
                 }
 
                 //跳转到支付页Pay/AliPay 
-                return RedirectToAction("Alipay", "Pay", new { id = order.ID });
+                return RedirectToAction("Alipay", "Pay", new {id = order.ID});
             }
 
             //5.如果验证不通过，返回视图

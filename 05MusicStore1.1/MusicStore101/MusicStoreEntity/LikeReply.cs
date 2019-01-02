@@ -13,21 +13,15 @@ namespace MusicStoreEntity
     public class LikeReply
     {
         public Guid ID { get; set; }
-        public virtual Reply Reply { get; set; }
-        public bool IsNotLiKe { get; set; }//like保存true hate促false
-        public virtual Person Person { get; set; }//上级回复
-        public DateTime CreateDateTime { get; set; }//回复时间
-
-        //赞
-        public int Like { get; set; } = 0;
-
-        //踩
-        public int Hate { get; set; } = 0;
+        public virtual  Reply Reply { get; set; }
+        public bool IsNotLike { get; set; }   //like保存true  hate促false
+        public virtual  Person Person { get; set; }
+        public DateTime CreateDateTime { get; set; }
 
         public LikeReply()
         {
-            ID = Guid.NewGuid();
-            CreateDateTime = DateTime.Now;
+            ID=Guid.NewGuid();
+            CreateDateTime=DateTime.Now;
         }
     }
 }

@@ -31,10 +31,10 @@ namespace MusicStore.Controllers
             {
                 var person = new Person()
                 {
-                    FirstName = model.FullName.Substring(0, 1),
-                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
-                    Name = model.FullName,
-                    CredentialsCode = "",
+                    FirstName = model.FullName.Substring(0,1),
+                    LastName = model.FullName.Substring(1,model.FullName.Length-1),
+                    Name =  model.FullName,
+                    CredentialsCode ="",
                     Birthday = DateTime.Now,
                     Sex = true,
                     MobileNumber = "18866668888",
@@ -42,7 +42,7 @@ namespace MusicStore.Controllers
                     TelephoneNumber = "18866668888",
                     Description = "",
                     CreateDateTime = DateTime.Now,
-                    UpdateTime = DateTime.Now,
+                    UpdateTime =  DateTime.Now,
                     InquiryPassword = "未设置",
                 };
                 var user = new ApplicationUser()
@@ -62,9 +62,9 @@ namespace MusicStore.Controllers
                 idManager.CreateUser(user, model.PassWord);
                 idManager.AddUserToRole(user.Id, "RegisterUser");
 
-                return Content("<script>alert('恭喜注册成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
+                return Content("<script>alert('恭喜注册成功!');location.href='"+Url.Action("login","Account")+"'</script>");
             }
-
+            
             return View();
         }
 
@@ -75,7 +75,7 @@ namespace MusicStore.Controllers
         /// </summary>
         /// <param name="returnUrl">登录成功后跳转地址</param>
         /// <returns></returns>
-        public ActionResult Login(string returnUrl = null)
+        public ActionResult Login(string returnUrl=null)
         {
             if (string.IsNullOrEmpty(returnUrl))
                 ViewBag.ReturnUrl = Url.Action("index", "home");
@@ -94,8 +94,8 @@ namespace MusicStore.Controllers
             {
                 var loginStatus = new LoginUserStatus()
                 {
-                    IsLogin = false,
-                    Message = "用户或密码错误",
+                     IsLogin =  false,
+                    Message =  "用户或密码错误",
                 };
                 //登录处理
                 var userManage =
@@ -105,7 +105,7 @@ namespace MusicStore.Controllers
                 {
                     var roleName = "";
                     var context = new EntityDbContext();
-                    foreach (var role in user.Roles)
+                    foreach (var  role in user.Roles)
                     {
                         roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + ",";
                     }

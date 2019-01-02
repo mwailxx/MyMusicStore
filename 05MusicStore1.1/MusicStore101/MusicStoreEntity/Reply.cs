@@ -27,9 +27,9 @@ namespace MusicStoreEntity
 
         [Required]
         public virtual Album Album { get; set; }
-
+        
         public virtual Reply ParentReply { get; set; }   //上级回复
-
+        
         public DateTime CreateDateTime { get; set; }  //回复时间
 
         //赞
